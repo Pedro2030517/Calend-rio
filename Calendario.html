@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Calendario</title>
+    
+  </head>
+  <body>
+     
+      <script>
+          var umaData2, Data, a, mes, d, corfnt, corfdo, fim, ini;
+
+          a = parseInt(window.prompt("Qual ano?"));
+          mes = parseInt(window.prompt("Qual mês?"));
+
+          Data = new Date(a, mes - 1, 1);
+
+          umaData2 = new Date(a, mes, 1);
+          umaData2.setDate(0);
+
+          switch (mes - 1) {
+              case 0: document.write("<div class='titulo'>Janeiro / " + a); break;
+              case 1: document.write("<div class='titulo'>Fevereiro / " + a); break;
+              case 2: document.write("<div class='titulo'>Março / " + a); break;
+              case 3: document.write("<div class='titulo'>Abril / " + a); break;
+              case 4: document.write("<div class='titulo'>Maio / " + a); break;
+              case 5: document.write("<div class='titulo'>Junho / " + a); break;
+              case 6: document.write("<div class='titulo'>Julho / " + a); break;
+              case 7: document.write("<div class='titulo'>Agosto / " + a); break;
+              case 8: document.write("<div class='titulo'>Setembro / " + a); break;
+              case 9: document.write("<div class='titulo'>Outubro / " + a); break;
+              case 10: document.write("<div class='titulo'>Novembro / " + a); break;
+              case 11: document.write("<div class='titulo'>Dezembro / " + a); break;
+          }
+
+          document.write("</div>");
+          document.write("<table>");
+          document.write("<tr>");
+          document.write("<td class='domtd'> <div class='sedom'> Dom");
+          document.write("<td> <div class='sedia'> Seg");
+          document.write("<td> <div class='sedia'> Ter");
+          document.write("<td> <div class='sedia'> Qua");
+          document.write("<td> <div class='sedia'> Qui");
+          document.write("<td> <div class='sedia'> Sex");
+          document.write("<td> <div class='sedia'> Sáb");
+          document.write("<tr>");
+
+          switch (Data.getDay()) {
+              case 0: document.write(""); break;
+              case 1: document.write("<td colspan=1>"); break;
+              case 2: document.write("<td colspan=2>"); break;
+              case 3: document.write("<td colspan=3>"); break;
+              case 4: document.write("<td colspan=4>"); break;
+              case 5: document.write("<td colspan=5>"); break;
+              case 6: document.write("<td colspan=6>"); break;
+          }
+
+          for (d = 2; d <= umaData2.getDate() + 1; ++d) {
+              if (Data.getDay() == 0) {
+                  document.write("<tr>");
+                  document.write("<td class='domtd'>");
+                  document.write("<div class='dom'>" + Data.getDate());
+                  document.write("</td>");
+
+                  Data.setDate(d);
+              }
+
+              else {
+                  document.write("<td>");
+                  document.write("<div class='dia'>" + Data.getDate());
+                  document.write("</td>");
+
+                  Data.setDate(d);
+              }
+          }
+
+          document.write("</table>");
+          document.write("<br>");
+
+      </script>
+       <style>
+       
+        .titulo
+        {
+        font-family: Georgia, 'Times New Roman', Times, serif;
+        font-size: 50px;
+        font-weight: 700;
+        text-align: center;
+        margin-top: 100px;
+        }
+  
+        table
+        {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 200px;
+        
+        
+        }
+  
+        tr
+        {
+        
+        border-collapse: collapse;
+        width: 70px;
+        height: 70px;
+        }
+  
+        td 
+        {
+         border: 2px solid black;
+         border-collapse: collapse;
+         width: 70px;
+         height: 70px;
+         
+        }
+        
+        .domtd
+        {
+            background-color: red;
+        }
+  
+        .dom
+        {
+        font-family: Arial, 'Times New Roman', Times, serif;
+        font-size: 40px;
+        font-weight: 100;
+        text-align: center;
+        color: white;
+        background-color: red;
+        }
+  
+        .sedom
+        {
+        font-family: Arial, 'Times New Roman', Times, serif;
+        font-size: 30px;
+        font-weight: 100;
+        text-align: center;
+        color: white;
+        background-color: red;
+  
+        }
+  
+        .dia
+        {
+        font-family: Arial, 'Times New Roman', Times, serif;
+        font-size: 40px;
+        font-weight: 100;
+        text-align: center;
+        }
+  
+        .sedia
+        {
+        font-family: Arial, 'Times New Roman', Times, serif;
+        font-size: 30px;
+        font-weight: 100;
+        text-align: center;
+        }
+        </style>
+
+  </body>
+</html>
